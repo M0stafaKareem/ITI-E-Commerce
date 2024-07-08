@@ -1,0 +1,142 @@
+.badge{
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    padding: 1.3px;
+
+    background: #fff;
+    border: 1px solid #666;
+    color: #666;
+    text-align: center;
+    font-weight: bolder !important;
+    font: 9px Arial, sans-serif;
+
+    position: absolute;
+    top: 0;
+    right: 43%;
+    transform: translate(50%, -50%);
+}
+.BigIcon{
+    margin: 2px;
+    position: relative;
+    font-size: 1.5rem;
+}
+.Price{
+    display: inline;
+    margin: 2px;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.Container{
+   
+    display: inline-block;
+    width: -moz-available;
+    height: auto;
+    padding: 1rem;
+    font-family: sans-serif;
+    flex-wrap: wrap;
+    background-color: #f0f3f2;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 2rem;
+    
+
+}
+
+.Price{
+    font-size: 1rem;
+    color: green;
+}
+.EGP{
+    font-size: 1rem;
+    color: green;
+}
+.CartGrid{
+    display: inline-block;
+    width: -moz-available;
+    
+    padding: 1rem;
+    font-family: sans-serif;
+    flex-wrap: wrap;
+    background-color: #f0f3f2;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 2rem;
+}
+
+.CartItems{
+    display: flex;
+    width: -moz-available;
+    height: fit-content;
+    
+    font-family: sans-serif;
+    flex-wrap: wrap;
+    background-color: #f0f3f2;
+    box-sizing: border-box;
+    border-radius: 10px;
+    
+    text-align: center;
+    font-size: 1.0rem;
+}
+.CartItems img{
+    width: 9rem;
+    height: 9rem;
+    margin: 2px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 5px;
+}
+.ItemInfo{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    justify-content: left;
+
+}
+.ItemName{
+    margin: 10px 0px;
+    font-size: 1.1rem;
+}
+.ItemPrice{
+    text-align: start;
+}
+
+.ItemRemove{
+    margin-top: auto;
+}
+
+.btn-remove{
+    background-color: rgba(94, 5, 5, 0);
+    color: red;
+    border: solid 1px red;
+    padding: 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-remove:hover{
+    background-color: rgb(170, 0, 0);
+    color: white;
+    border: solid 1px rgb(170, 0, 0);
+    box-shadow: 1px 1px 10px rgb(170, 0, 0);
+
+}
+
+.CountControl{
+    margin-left: auto;
+    margin-top: 50px;
+}
+.GreenIcon{
+    color: white;
+    background-color: green;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+.transparentIcon{
+    padding: 5px;
+    font-size: 1.5rem;
+}
