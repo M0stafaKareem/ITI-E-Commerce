@@ -1,6 +1,6 @@
-@font-face { font-family: Poppins-Bold; src: url("/fonts/Poppins-Bold.ttf"); }
-@font-face { font-family: Poppins-Regular; src: url("/fonts/Poppins-Regular.ttf"); }
-@font-face { font-family: Poppins-Medium; src: url("/fonts/Poppins-Medium.ttf"); }
+@font-face { font-family: Poppins-Bold; src: url("./fonts/Poppins-Bold.ttf"); }
+@font-face { font-family: Poppins-Regular; src: url("./fonts/Poppins-Regular.ttf"); }
+@font-face { font-family: Poppins-Medium; src: url("./fonts/Poppins-Medium.ttf"); }
 .badge{
     border-radius: 50%;
     width: 12px;
@@ -46,7 +46,7 @@ a{
     position: relative;
     font-size: 1.5rem;
 }
-/* ////////////////// */
+/* ///////////////////////////////////////////////////////////// */
 /* cart page */
 .Container{
     display: flex;
@@ -131,8 +131,7 @@ a{
 }
 .MidIcon{
     font-family: Poppins-Regular;
-    padding: 5px;
-    padding-right: 0px;
+    text-align: center;
     font-size: 1rem;
     color: #666666;
     border-right:  solid 1px #e6e6e6 !important;
@@ -201,4 +200,161 @@ a{
     color: #fff;
 }
 
+.btn-danger{
+    background-color: #000;
+    color: #fff;
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.466667;
+    padding: 10px 0px;
+    border-radius: 25px;
+    text-align: center;
+    border: 0px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.btn-danger:hover{
+    background-color: #ff0505;
+    color: #fff;
+}
+.Remove_Link{
+    /* text-decoration: underline; */
+    text-transform: uppercase;
+    font-size: 13px;
+    width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  color: #717fe0;
+}
 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/*Side Cart///////////////////////////////////////////////////// */
+.FullOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000007a;
+    z-index: 100;
+}
+
+.RelativeRight{
+    position: relative;
+}
+
+.SideCart{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 101;
+    padding-left: 65px;
+    padding-right: 35px;
+    box-sizing: border-box;
+    
+}
+.SCHeader{
+    width: 260px;
+  max-width: 100%;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #333;
+
+}
+.SCTitle{
+    text-transform: uppercase;
+    font-family: Poppins-Bold;
+    font-size: 18px;
+    line-height: 1.333333;
+    
+
+}
+#CloseSC{
+    cursor: pointer;
+}
+#CloseSC:hover{
+    color: #717fe0;
+}
+.SCGrid{
+    overflow-y: scroll;
+    height: 75vh;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+.SCGridItem{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+
+}
+
+.SCGridItemInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 80px; 
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    color: #555;
+    
+}
+.SCGridItemName:hover{
+    color: #717fe0;
+}
+.SCGridItemPrice{
+    color:#888;
+}
+
+.SCGridItemImage{
+    width: 60px;
+    height: 80px;
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.SCGridItemImage img{
+    width: 60px;
+    height: 80px;
+
+}
+.SCTotal{
+    padding: 40px 0px;
+    display: flex;
+    justify-content: start;
+    font-size: 18px;
+    font-family: Poppins-Regular;
+}
+.SCbutton{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.m-r-8{
+    margin-right: 8px;
+}
+.m-b-10{
+    margin-bottom: 10px;
+}
+.w-100{
+    width: 100%;
+}
+.HideSideCart{
+    display: none;
+}

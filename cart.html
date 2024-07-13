@@ -11,20 +11,19 @@
             <th>Quantity</th>
             <th>Total</th>
         </thead>
-        <tbody >
+        <tbody class="CartGrid" >
             <tr>
                 <td>
                     <div class="CartItemImage">
-                        <img width="100" src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_1024x1024.jpg?v=1640022000"> 
+                        <img width="100" src="${CarItem[1].thumbnail}"> 
                     </div>
                 </td>
                 <td><div class="ItemName">
-                    Fresh Strawberries</div></td>
-                <td><div class="CartTableCenter">200.00 E£</div></td>
-                <td><div class="CartTableCenter"><div class="CountControlContainer"><i class="fa-solid fa-minus borderedIcon CountControl"></i><input type="number" class="MidIcon borderedIcon " value="1"><i class="fa-solid fa-plus borderedIcon CountControl"></i></div></td>
-                <td><div class="CartTableCenter">200</div></td>
+                    ${CarItem[1].title}</div></td>
+                <td><div class="CartTableCenter">${CarItem[1].price} E£</div></td>
+                <td><div class="CartTableCenter"><div class="CountControlContainer"><i onclick="DeleteFromCart(${CarItem[1].id})" class="fa-solid fa-minus borderedIcon CountControl"></i><input type="number" class="MidIcon borderedIcon " min="1" max="100" value="${CarItem[0]}"><i onclick="AddToCart(${CarItem[1].id})" class="fa-solid fa-plus borderedIcon CountControl"></i></div></td>
+                <td><div class="CartTableCenter">${CarItem[1].price * CarItem[0]} E£</div></td>
             </tr>
-        <tr>
             <td>
                 <div class="CartItemImage">
                     <img width="100" src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_1024x1024.jpg?v=1640022000"> 
@@ -44,11 +43,8 @@
         <div class="CartTotal">
             <h4 class="CartTotalTitle">Cart Totals</h4>
         </div>
-        <div class="FlexRow ">
-            <div style="width: 34.5%;">Subtotal: </div><div>$79.65 </div>
-        </div>
         <div class="FlexRow FinalFlex BorderTopDashed">
-            <div style="width: 34.5%; font-weight: bold;">Total: </div><div>$79.65 </div>
+            <div style="width: 34.5%; font-weight: bold;">Total: </div><div id="CartTotalSum">$0</div>
         </div>
         <button class=" btn-checkout">Checkout</button>
     </div>
