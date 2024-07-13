@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Product Details</title>
+        <link rel="stylesheet" href="./productDetailsPage.css" />
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <header>
+            <div class="left">
+                <div class="logo">
+                    <p><span>COZA</span> STORE</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Categories</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="right">
+                <input type="text" class="search-input" id="search-input" placeholder="Search...">
+                <button><i class="bx bx-search" id="search-icon"></i></button>
+                <button><i class="bx bx-cart-alt"></i></button>
+                <button><i class="bx bx-heart"></i></button>
+            </div>
+        </header>
+
+        <section class="product-category-section">
+            <div class="main-product-category-section">
+                <div class="title-category-product">
+                    <h1>Products</h1>
+                    <!-- <input type="text" id="search-bar" placeholder="Search for a product"> -->
+                </div>
+
+                <div class="product-container">
+                    <!-- <div class="card-product-container">
+                        <div class="product-image">
+                            <img src="${item.thumbnail}" alt="category-img" />
+                            <div class="add-cart-btn">
+                                <button>Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="category-style">
+                            <p>${item.category}</p>
+                        </div>
+                        <div class="product-name">
+                            <p>${item.title}</p>
+                        </div>
+                        <div class="product-price-rating">
+                            <p class="price">${item.price} $</p>
+                            <p>${item.rating} <i class="fa-regular fa-star"></i></p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footerContainer">
+                <div class="row">
+                    <div class="footerCol">
+                        <h4 class="colHeader">Categories</h4>
+                        <ul>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> Women </a>
+                            </li>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> Men </a>
+                            </li>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> Shoes </a>
+                            </li>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> Watches </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footerCol">
+                        <h4 class="colHeader">Help</h4>
+                        <ul>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> Track Order </a>
+                            </li>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> Returns </a>
+                            </li>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> Shipping </a>
+                            </li>
+                            <li class="colItem">
+                                <a href="#" class="colLink"> FAQs </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footerCol">
+                        <h4 class="colHeader">GET IN TOUCH</h4>
+                        <p>
+                            Any questions? Let us know in store at 8th floor, 379 Hudson St,
+                            New York, NY 10018 or call us on (+1) 96 716 6879
+                        </p>
+                        <div class="p-t-27">
+                            <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                            <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                                <i class="fa fa-pinterest-p"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footerCol">
+                        <h4 class="colHeader">NEWSLETTER</h4>
+                        <form>
+                            <div>
+                                <input class="footerEmailInp" type="email" name="email"
+                                    placeholder="email@example.com" />
+                            </div>
+                            <div>
+                                <button class="subBtn">SUBSCRIBE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="CopyrightSection">
+                    <p class="CopyrightPar">
+                        Copyright © 2024 All rights reserved | This Website is made for ITi
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <script src="task.js"></script>
+    </body>
+
+</html>
