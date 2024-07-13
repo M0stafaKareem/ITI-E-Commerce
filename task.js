@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const productContainer = document.querySelector('.product-container');
     const searchIcon = document.getElementById("search-icon");
     const searchInput = document.getElementById("search-input");
+    const filterBtn = document.querySelectorAll('.filter-btn');
+    fetchFilter();
 
     // Fetch and display all products initially
     fetchProducts('https://dummyjson.com/products');
@@ -43,7 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                const products = data.products;
+                console.log(data)
+                if (data.products.length === 0 || data === "") {
+                    productContainer.innerHTML = '<p>No products found.</p>';
+                    return;
+
+                }
+
+                const products = getFilteredProducts(data.products);
+
+                if (products.length == 0 || products === "") {
+                    productContainer.innerHTML = '<p>No products found.</p>';
+                    return;
+                }
                 displayProducts(products);
             })
             .catch(error => console.error('Error fetching products:', error));
@@ -78,4 +92,72 @@ document.addEventListener('DOMContentLoaded', () => {
             productContainer.appendChild(productCard);
         });
     }
+
+    document.getElementById('min-price').addEventListener('change', function () {
+        var category = document.getElementById('filter-categories-select').value;
+        filterByCategory(category);
+    });
+
+    document.getElementById('max-price').addEventListener('change', function () {
+        var category = document.getElementById('filter-categories-select').value;
+
+        filterByCategory(category);
+    });
+
+    document.getElementById('filter-categories-select').addEventListener('change', function () {
+
+        filterByCategory(this.value);
+    });
+
+
+    function filterByCategory(val = undefined) {
+        const selectedCategory = val;
+        const url = `https://dummyjson.com/products/category/${selectedCategory}`;
+        if (val == 0 || val == undefined) {
+
+            fetchProducts('https://dummyjson.com/products');
+        } else {
+            fetchProducts(url);
+        }
+
+    }
+
+
+
+
+    function getFilteredProducts(products) {
+        const minValue = document.getElementById('min-price').value;
+        console.log(minValue);
+
+        const maxValue = document.getElementById('max-price').value;
+        console.log(maxValue);
+        if (minValue != 0 || maxValue != 0) {
+            var filteredPrice = products.filter(product => product.price >= minValue && product.price <= maxValue);
+            console.log(filteredPrice);
+            return filteredPrice;
+        } else {
+            return products;
+        }
+    }
 });
+
+function fetchFilter() {
+    const categorySelect = document.getElementById('filter-categories-select');
+
+
+    fetch('https://dummyjson.com/products/categories')
+        .then(res => res.json())
+        .then(data => {
+            const categories = data;
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.name;
+                option.innerText = category.name;
+                categorySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+
+}
+

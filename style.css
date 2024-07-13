@@ -109,17 +109,49 @@ header .search-input:focus {
     padding-bottom: 50px;
 }
 
-.title-category-product {
+.filter-categories {
+    display: flex;
+    justify-content: center;
+    width: 50%;
     padding: 20px;
+}
+
+#filter-categories-select {
+    width: 100%;
+    padding: 20px;
+}
+
+.title-category-product {
+    display: flex;
+    padding: 3rem 10rem;
+    justify-content: space-between;
     /* border-bottom: 1px solid black; */
     margin: 0px 10px;
 }
 
 .title-category-product h1 {
-    display: flex;
+    display: inline-flex;
     justify-content: flex-start;
-    margin: 50px 10px;
+    /* margin: 50px 10px; */
     font-size: 3rem;
+
+}
+
+.filter-btn {
+    /* display: inline-flex; */
+    /* justify-content: flex-end; */
+    background-color: #717fe0;
+    color: white;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.4s ease-in-out;
+}
+
+.filter {
+    background-color: red;
 
 }
 

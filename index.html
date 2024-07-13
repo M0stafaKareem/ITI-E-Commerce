@@ -44,11 +44,27 @@
             <div class="main-product-category-section">
                 <div class="title-category-product">
                     <h1>Products</h1>
+                    <button class="filter-btn">Filter</button>
                     <!-- <input type="text" id="search-bar" placeholder="Search for a product"> -->
                 </div>
+                <div class="filter-price-sort">
+                    <select>
+                        <option>lower to higher</option>
+                        <option>higher to lower</option>
+                    </select>
+                    <div class="filter-price">
+                        <input id="min-price" type="number" value="0" placeholder="min" max="50000" min="0">
+                        <input id="max-price" type="number" value="10000" placeholder="max" max="50000" min="0">
+                    </div>
+                    <div class="filter-categories">
+                        <select id="filter-categories-select">
+                            <option default value="0">all </option>
+                        </select>
+                    </div>
 
-                <div class="product-container">
-                    <!-- <div class="card-product-container">
+                    <div class="product-container">
+
+                        <!-- <div class="card-product-container">
                         <div class="product-image">
                             <img src="${item.thumbnail}" alt="category-img" />
                             <div class="add-cart-btn">
@@ -66,8 +82,8 @@
                             <p>${item.rating} <i class="fa-regular fa-star"></i></p>
                         </div>
                     </div> -->
+                    </div>
                 </div>
-            </div>
         </section>
 
         <footer>
