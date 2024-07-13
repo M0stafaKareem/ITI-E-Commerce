@@ -13,7 +13,7 @@ function categoryProduct(url) {
       categoryDetail.products.forEach((item) => {
         categoryTitle.innerText = `${item.category.toUpperCase()}`;
         productItems.innerHTML += `
-          <div class="card-product-container">
+          <div class="card-product-container" onClick = "">
             <div class="product-image">
               <img
                 src="${item.thumbnail}"

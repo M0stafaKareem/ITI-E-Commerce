@@ -19,10 +19,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: fixed;
 }
 
 .container {
-  max-width: 80%;
+  max-width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -49,6 +50,32 @@ body {
   padding-bottom: 20px;
 }
 
+.buy-btn {
+  width: 20%;
+}
+
+.buy-btn button {
+  width: 80%;
+  padding: 30px 40px;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+  background: rgb(22, 105, 156);
+  background: linear-gradient(
+    90deg,
+    rgba(22, 105, 156, 1) 0%,
+    rgba(247, 0, 190, 1) 100%
+  );
+  border-radius: 5px;
+}
+
+.buy-btn button:hover {
+  opacity: 1;
+}
+
 .private-section button {
   width: 60%;
   padding: 20px 20px;
@@ -64,23 +91,12 @@ body {
   opacity: 1;
 }
 
-.men-section {
-}
-
-.men-section button {
-  background-color: #16699c;
-}
-
 .men-section h2 span {
   color: #16699c;
 }
 
 .women-section h2 span {
   color: palevioletred;
-}
-
-.women-section button {
-  background-color: palevioletred;
 }
 
 header {
@@ -136,15 +152,12 @@ header .right button {
   margin: 0 10px;
   font-size: 30px;
 }
-section {
-  position: relative;
-}
 
 .main-container {
   position: fixed;
   max-width: 40vh;
   width: 100%;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
   padding-bottom: 20px;
   /* display: none; */
   left: -300px;
@@ -159,27 +172,23 @@ section {
   width: 12px;
 }
 
-/* Background of the scrollbar */
 .main-container::-webkit-scrollbar-track {
   background: black;
   border-radius: 10px;
 }
 
-/* Scrollbar handle */
 .main-container::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
 
-/* Scrollbar handle on hover */
 .main-container::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
 .title-category {
   padding: 20px;
-  border-bottom: 1px solid white;
-  margin: 0px 10px;
+  /* border-bottom: 1px solid white; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -187,6 +196,7 @@ section {
   top: 0;
   background-color: black;
   z-index: 99;
+  width: 100%;
 }
 
 .close-btn {
@@ -207,6 +217,9 @@ section {
   margin: auto;
 }
 
+.categories-section {
+  position: absolute;
+}
 .categories-container {
   padding: 10px;
   display: flex;
@@ -353,12 +366,23 @@ section {
   transition: all 0.2s ease;
   cursor: pointer;
   background-color: white;
-  border: 1px solid green;
-  color: green;
+  border: 1px solid black;
+  color: black;
+}
+
+.buy-btn button {
+  width: 100%;
+  padding: 20px 20px;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .add-cart-btn button:hover {
-  background-color: green;
+  background-color: black;
   color: white;
 }
 .category-style {
