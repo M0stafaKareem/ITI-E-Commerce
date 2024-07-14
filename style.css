@@ -249,15 +249,22 @@ header .search-input {
 @media (max-width: 640px) {
   .container {
     flex-direction: column;
-    padding: 30px 0px;
+    padding: 65px 0px;
+    max-width: 100%;
   }
   .private-section {
     text-align: center;
   }
   .buy-btn {
-    width: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
+header .right button {
+  font-size: 1.5rem;
+}
+
 @media only screen and (max-width: 600px) {
   header .left nav {
     display: none;
