@@ -364,3 +364,45 @@ header nav ul li a:hover {
   position: relative;
   font-size: 1.5rem;
 }
+
+@media only screen and (max-width: 600px) {
+  header .left nav {
+    display: none;
+  }
+  header .left .logo span {
+    display: block;
+  }
+  header .right .mobileBurgerBtn {
+    display: inline;
+  }
+  header .right button {
+    font-size: 1.5rem;
+  }
+
+  .productEssintials {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .productDetails {
+    padding: 20px;
+    width: 90%;
+  }
+  .productDetails nav ul {
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .newReview form .reviewerData {
+    display: flex;
+    gap: -50px;
+    justify-content: space-between;
+  }
+
+  footer .row {
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+  }
+}
