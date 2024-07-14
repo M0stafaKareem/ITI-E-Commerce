@@ -193,7 +193,7 @@ function PopulateCartPage(){
             <tr>
             <td>
                 <div class="CartItemImage">
-                    <img width="100" src="${CarItem[1].thumbnail}"> 
+                    <img  src="${CarItem[1].thumbnail}"> 
                 </div>
             </td>
             <td><div class="ItemName">
