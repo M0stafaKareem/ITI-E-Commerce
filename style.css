@@ -480,3 +480,16 @@ header nav ul li a:hover {
 .CopyrightPar {
   text-align: center;
 }
+
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+    padding: 30px 0px;
+  }
+  .private-section {
+    text-align: center;
+  }
+  .buy-btn {
+    width: 40%;
+  }
+}
