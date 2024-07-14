@@ -1,35 +1,28 @@
 let productData = {};
-const productDesc = document.getElementById("productDesc");
-const productRev = document.getElementById("productRev");
-const writeNewRev = document.getElementById("writeNewRev");
 const productOverviewSection = document.querySelector(".porductOverview");
 const productDetailsSection = document.querySelector(".productInformation");
 const reviewsCount = document.querySelector(".revCount");
 const mobileNavMenu = document.querySelector(".mobile-nav");
 const mobileBurgerBtn = document.querySelector(".mobileBurgerBtn");
 const mobileCloseBtn = document.querySelector(".mobileCloseBtn");
-import { fetchCategories } from "./Product_Categories.js";
-fetchCategories();
-document.addEventListener("DOMContentLoaded", async () => {
+const productDesc = document.getElementById("productDesc");
+const productRev = document.getElementById("productRev");
+const writeNewRev = document.getElementById("writeNewRev");
+
+const fetchProductData = async (productID) => {
   try {
-    let urlParams = new URLSearchParams(window.location.search);
-    let productID = urlParams.get("id");
-    await fetch(`https://dummyjson.com/products/${productID}`)
-      .then((response) => response.json())
-      .then((jsonData) => {
-        productData = {...jsonData};
-        reviewsCount.textContent = jsonData.reviews.length;
-        renderSingleProduct(jsonData);
-      });
+    const response = await fetch(`https://dummyjson.com/products/${productID}`);
+    const jsonData = await response.json();
+    productData = { ...jsonData };
+    reviewsCount.textContent = productData.reviews.length;
   } catch (error) {
     console.error("Error fetching product data:", error);
   }
-});
-// export const fetchProductData = async (productID) => {
-//   window.open(`../productDetailsPage.html?id=${productID}`, "_self");
-// };
+};
 
-const renderSingleProduct = async (productData) => {
+const renderSingleProduct = async (productID = 15) => {
+  await fetchProductData(productID);
+
   productOverviewSection.innerHTML = ` <div class="currDirectory">
         <p>Products</p>
         <i class="bx bx-chevron-right"></i>
@@ -44,8 +37,9 @@ const renderSingleProduct = async (productData) => {
             return `<button onclick="sidePhotoClickHandler('${img}')">
               <img
                 src="${img}"
-                alt="product"
-              /></button>`;
+                alt=""
+              />
+            </button>`;
           })}
           </aside>
           <div class="mainImageContainer">
@@ -64,20 +58,20 @@ const renderSingleProduct = async (productData) => {
             ${productData.description}
             </h3>
           </div>
-          <div action="" class="numberOfItems">
+          <form action="" class="numberOfItems">
             <div class="quantity">
               <button class="op" onclick = "operationBtnHandler(event , '-')" > - </button>
               <div class="qun">1</div>
               <button class="op" onclick = "operationBtnHandler(event , '+')" > + </button>
             </div>
-            <button onclick="AddItemToCart(${productData.id})" class="addBtn">ADD TO CART</button>
-          </div>
+            <button class="addBtn">ADD TO CART</button>
+          </form>
         </div>
       </div>`;
   productDetailsNavHandler();
 };
 
- function productDetailsNavHandler (event = null, me = {}) {
+const productDetailsNavHandler = (event = null, me = {}) => {
   if (me.id == "productRev") {
     productDetailsSection.innerHTML = `${productData.reviews.map((item) => {
       return `<div class="reviews">
@@ -176,22 +170,13 @@ const renderSingleProduct = async (productData) => {
         </div>`;
   }
 };
-productDesc.addEventListener("click", function(e) {
-  productDetailsNavHandler(e, this);
-});
-productRev.addEventListener("click", function(e) {
-  productDetailsNavHandler(e, this);
-});
-writeNewRev.addEventListener("click", function(e) {
-  productDetailsNavHandler(e, this);
-});
 
-export const sidePhotoClickHandler = (url) => {
+const sidePhotoClickHandler = (url) => {
   const mainPhoto = document.querySelector(".mainImage");
   mainPhoto.src = url;
 };
 
-export const operationBtnHandler = (event, op) => {
+const operationBtnHandler = (event, op) => {
   event.preventDefault();
   const quantity = document.querySelector(".qun");
   if (op == "-" && +quantity.textContent > 1) {
@@ -200,6 +185,15 @@ export const operationBtnHandler = (event, op) => {
     quantity.textContent = +quantity.textContent + 1;
   }
 };
+productDesc.addEventListener("click", function (e) {
+  productDetailsNavHandler(e, this);
+});
+productRev.addEventListener("click", function (e) {
+  productDetailsNavHandler(e, this);
+});
+writeNewRev.addEventListener("click", function (e) {
+  productDetailsNavHandler(e, this);
+});
 
 const sideMenuHandler = () => {
   mobileBurgerBtn.style.display = "none";
@@ -207,11 +201,11 @@ const sideMenuHandler = () => {
   mobileNavMenu.style.display = "block";
   mobileNavMenu.style.top = "100px";
 };
-mobileBurgerBtn.addEventListener("click", sideMenuHandler);
 
 const closeSideMenuHandler = () => {
   mobileBurgerBtn.style.display = "inline";
   mobileCloseBtn.style.display = "none";
   mobileNavMenu.style.top = "-300px";
 };
-mobileCloseBtn.addEventListener("click", closeSideMenuHandler);
+
+renderSingleProduct(localStorage.getItem("ProductID"));

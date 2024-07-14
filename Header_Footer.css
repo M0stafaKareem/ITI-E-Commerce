@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
@@ -20,12 +20,11 @@
   background: #ddd;
 }
 
-
 /* Header Styles */
 header {
-
   position: sticky;
   display: flex;
+  align-items: center;
   background-color: white;
   z-index: 50;
   top: 0;
@@ -320,7 +319,7 @@ header nav ul li a:hover {
   text-align: center;
 }
 /* cart icon */
-.badge{
+.badge {
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -336,32 +335,30 @@ header nav ul li a:hover {
   transition: all 0.2s;
   color: white;
 }
-.BigIcon:hover .badge{
+.BigIcon:hover .badge {
   background-color: #717fe0;
   color: #fff;
   border: 1px solid #717fe0;
 }
-.cartContainer{
+.cartContainer {
   display: flex;
   align-items: center;
 }
-.cartContainer a{
+.cartContainer a {
   text-decoration: none;
   color: inherit;
-
 }
-.BigIcon{
+.BigIcon {
   margin: 2px;
   position: relative;
   font-size: 1.5rem;
   transition: all 0.2s;
   cursor: pointer;
 }
-.BigIcon:hover{
+.BigIcon:hover {
   color: #717fe0;
-
 }
-.Price{
+.Price {
   display: inline;
   margin: 2px;
   position: relative;

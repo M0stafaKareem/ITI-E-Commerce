@@ -1,4 +1,3 @@
-
 const mainCategoryList = document.querySelector(".main-container");
 const productItems = document.querySelector(".product-container");
 const allCategories = document.querySelector(".categories-container");
@@ -14,7 +13,7 @@ function categoryProduct(url) {
         productItem = item;
         categoryTitle.innerText = `${item.category.toUpperCase()}`;
         productItems.innerHTML += `
-          <div class="card-product-container"  >
+          <div class="card-product-container" id="${item.id}">
             <div class="product-image">
               <img
                 src="${item.thumbnail}"
@@ -34,8 +33,8 @@ function categoryProduct(url) {
       });
       document.querySelectorAll(".card-product-container").forEach((card) => {
         card.addEventListener("click", (event) => {
-          const productId = event.currentTarget.dataset.productId;
-          fetchProductData(productItem.id);
+          localStorage.setItem("ProductID", card.id);
+          window.open("./productDetailsPage.html", "_self");
         });
       });
     });
@@ -45,9 +44,7 @@ const categoryUrl = localStorage.getItem("categoryUrl");
 if (categoryUrl) {
   categoryProduct(categoryUrl);
 }
-function fetchProductData(productID) {
-  window.open(`../productDetailsPage.html?id=${productID}`, "_self");
-};
+
 export const fetchCategories = () => {
   fetch("https://dummyjson.com/products/categories")
     .then((response) => response.json())
