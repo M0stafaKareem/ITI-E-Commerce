@@ -3,20 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Details</title>
-    <link rel="stylesheet" href="./productDetailsPage.css" />
-    <link rel="stylesheet" href="./Header_Footer.css" />
-    <link rel="stylesheet" href="./Login.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    
-
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./Header_Footer.css" />
+    <link rel="stylesheet" href="./Login.css" />
   </head>
   <body>
     <div>
@@ -33,6 +40,7 @@
             </ul>
           </nav>
         </div>
+
         <div class="right">
           <button><i class="bx bx-search-alt-2"></i></button>
           <div class="cartContainer">
@@ -43,10 +51,10 @@
             </a>
           </div>
           <button onclick = "window.location.href='./Profile.html'"><i class="bx bxs-user"></i></button>
-          <button class="mobileBurgerBtn">
+          <button class="mobileBurgerBtn" onclick="sideMenuHandler()">
             <i class="bx bx-menu"></i>
           </button>
-          <button class="mobileCloseBtn">
+          <button class="mobileCloseBtn" onclick="closeSideMenuHandler()">
             <i class="bx bx-x"></i>
           </button>
           <button class="login-btn">LOG IN</button>
@@ -56,7 +64,7 @@
       <section class="mobile-nav">
         <nav>
           <ul>
-            <li><a href="./Home.html">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">Shop</a></li>
             <li><a href="#">Categories</a></li>
           </ul>
@@ -74,41 +82,13 @@
       </div>
     </section>
 
-    <section class="porductOverview"></section>
-
-    <section class="productDetails">
-      <nav>
-        <ul>
-          <li>
-            <button
-              id="productDesc"
-              onclick="productDetailsNavHandler(event , this)"
-            >
-              Description
-            </button>
-          </li>
-          <li>
-            <button
-              id="productRev"
-              onclick="productDetailsNavHandler(event , this)"
-            >
-              Reviews
-            </button>
-          </li>
-          <span class="revCount">1</span>
-          <li>
-            <button
-              id="writeNewRev"
-              onclick="productDetailsNavHandler(event , this)"
-            >
-              Write a review
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <div class="productInformation"></div>
+    <section class="product-category-section">
+      <div class="main-product-category-section">
+        <div class="title-category-product"><h1></h1></div>
+        <div class="product-container"></div>
+      </div>
     </section>
-    
+
     <footer>
       <div class="footerContainer">
         <div class="row">
@@ -244,9 +224,8 @@
           </div>
       </div>
   </div>
-  <script type="module" src="./productDetails.js"></script>
-  <script src="./cart.js"></script>
-  <script src="./LoginScript.js"></script>
+    <script type="module" src="Product_Categories.js"></script>
+    <script src="./cart.js"></script>
+    <script src="./LoginScript.js"></script>
   </body>
-
 </html>
