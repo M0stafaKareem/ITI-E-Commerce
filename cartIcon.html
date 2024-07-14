@@ -9,35 +9,24 @@
     <div class="RelativeRight">
         <div class="SCHeader">
             <div class="SCTitle">Your Cart</div>
-            <div id="CloseSC" class="fa-solid fa-2x fa-close"></div>
+            <div id="CloseSC" onclick="ToggleSideCart()" class="fa-solid fa-2x fa-close"></div>
         </div>
         <div class="SCContainer">
             <div class="SCGrid">
-                <div class="SCGridItem">
-                    <div class="SCGridItemImage">
-                        <img  src="https://m.media-amazon.com/images/I/91jWQ2Hx+QL._AC_SX679_.jpg">
-                    </div>
-                    <div class="SCGridItemInfo">
-                        <div class="SCGridItemName">Product Name</div>
-                        <div class="SCGridItemPrice">
-                            <div style="font-weight: lighter;"> <span id="Price">100</span> <span>E£</span> </div>
-                        </div>
-                       
-                    </div>
-                  
-                </div>
+                
                 
                
-                <div class="SCFooter">
+                
+            </div>
+            <div class="SCFooter">
                     <div class="SCTotal">
                         Total: $75.00 
                     </div>
                     <div class="SCButton">
-                        <button class="btn-checkout m-r-8 m-b-10 w-100">View Cart</button>
+                        <button onclick="ToCart()" class="btn-checkout m-r-8 m-b-10 w-100">View Cart</button>
                         <button class=" btn-checkout m-r-8 m-b-10 w-100">Checkout</button>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

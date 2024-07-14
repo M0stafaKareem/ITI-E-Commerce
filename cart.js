@@ -142,8 +142,10 @@ async function SetToCart(itemID , Count){
                     InnerArray.push(ItemJson);
                     CartData[itemID] = InnerArray;
                     updateBadgeAndCart(ItemJson);
+                    
                 });
             }
+            
             PopulateCartPage();
             UpdateSessionStorage();
     }
@@ -172,6 +174,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 });
 
 function PopulateCartPage(){
+    PopulateSideCart();
     const CartGrid = document.querySelector('.CartGrid');
     if (CartGrid!=null && CartData != null){ 
         CartGrid.innerHTML = '';
@@ -238,6 +241,33 @@ function(event){
     event.stopPropagation();
 });
 
+function ToCart(){
+    window.location.href = "cart.html";
+}
+
+function PopulateSideCart(){
+    var SCGrid = document.querySelector('.SCGrid');
+    if(SCGrid != null){
+    document.querySelector('.SCGrid').innerHTML = '';
+    Object.entries(CartData).forEach(([key, CarItem]) => {
+        document.querySelector('.SCGrid').innerHTML += `
+                <div class="SCGridItem">
+                    <div class="SCGridItemImage">
+                        <img  src="${CarItem[1].thumbnail}">
+                    </div>
+                    <div class="SCGridItemInfo">
+                        <div class="SCGridItemName">${CarItem[1].title}</div>
+                        <div class="SCGridItemPrice">
+                            <div style="font-weight: lighter;"> <span id="Price">${CarItem[0]} x ${CarItem[1].price}</span> <span>E£</span> </div>
+                        </div>
+                       
+                    </div>
+                  
+                </div>
+        `;
+    });
+    }
+}
 
   
   

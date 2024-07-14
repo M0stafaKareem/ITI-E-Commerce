@@ -293,7 +293,7 @@ input[type=number] {
 }
 .SCGrid{
     overflow-y: scroll;
-    height: 75vh;
+    height: 50vh;
     padding-bottom: 20px;
     box-sizing: border-box;
 }
@@ -326,7 +326,7 @@ input[type=number] {
     height: 80px;
   position: relative;
   margin-right: 20px;
-  cursor: pointer;
+
 }
 .SCGridItemImage img{
     width: 60px;
@@ -334,7 +334,7 @@ input[type=number] {
 
 }
 .SCTotal{
-    padding: 40px 0px;
+    padding: 3vh 0px;
     display: flex;
     justify-content: start;
     font-size: 18px;
