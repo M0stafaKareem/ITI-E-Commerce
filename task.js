@@ -1,9 +1,8 @@
-// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const productContainer = document.querySelector('.product-container');
     const searchIcon = document.getElementById("search-icon");
     const searchInput = document.getElementById("search-input");
-    const filterBtn = document.querySelectorAll('.filter-btn');
     fetchFilter();
 
     // Fetch and display all products initially
@@ -20,11 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
     document.addEventListener("click", function (e) {
         if (!searchIcon.contains(e.target) && !searchInput.contains(e.target)) {
             searchInput.style.display = "none";
         }
     });
+
 
     searchInput.addEventListener("input", function () {
         const query = searchInput.value.trim();
@@ -40,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    var globalProducts;
+
     // Function to fetch products from the API
     function fetchProducts(url) {
         fetch(url)
@@ -49,19 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.products.length === 0 || data === "") {
                     productContainer.innerHTML = '<p>No products found.</p>';
                     return;
-
                 }
-
                 const products = getFilteredProducts(data.products);
-
                 if (products.length == 0 || products === "") {
                     productContainer.innerHTML = '<p>No products found.</p>';
                     return;
                 }
+                globalProducts = products;
                 displayProducts(products);
             })
             .catch(error => console.error('Error fetching products:', error));
     }
+
 
     // Function to display products
     function displayProducts(products) {
@@ -93,44 +95,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     document.getElementById('min-price').addEventListener('change', function () {
         var category = document.getElementById('filter-categories-select').value;
         filterByCategory(category);
     });
 
+
     document.getElementById('max-price').addEventListener('change', function () {
         var category = document.getElementById('filter-categories-select').value;
-
         filterByCategory(category);
+        filterByPrice();
     });
+
 
     document.getElementById('filter-categories-select').addEventListener('change', function () {
-
         filterByCategory(this.value);
+        filterByPrice();
     });
 
 
+    document.querySelector('.filter-btn').addEventListener('click', function () {
+        document.getElementById('filter-section').classList.toggle('active');
+    })
+
+
+
+
+    // Function to filter products by category
     function filterByCategory(val = undefined) {
         const selectedCategory = val;
         const url = `https://dummyjson.com/products/category/${selectedCategory}`;
         if (val == 0 || val == undefined) {
-
             fetchProducts('https://dummyjson.com/products');
         } else {
             fetchProducts(url);
         }
+    }
+
+
+    document.getElementById('filter-price-sort').addEventListener('change', function () {
+        filterByPrice();
+    })
+
+    function filterByPrice() {
+        value = document.getElementById('filter-price-sort').value;
+        if (value == 1) {
+            globalProducts.sort((a, b) => a.price - b.price);
+        } else if (value == 2) {
+            globalProducts.sort((a, b) => b.price - a.price);
+        } else if (value == 0) {
+            globalProducts.sort((a, b) => a.id - b.id);
+        }
+
+        displayProducts(globalProducts);
 
     }
 
 
 
-
+    // Function to filter products by price
     function getFilteredProducts(products) {
         const minValue = document.getElementById('min-price').value;
-        console.log(minValue);
-
         const maxValue = document.getElementById('max-price').value;
-        console.log(maxValue);
         if (minValue != 0 || maxValue != 0) {
             var filteredPrice = products.filter(product => product.price >= minValue && product.price <= maxValue);
             console.log(filteredPrice);
@@ -139,25 +166,27 @@ document.addEventListener('DOMContentLoaded', () => {
             return products;
         }
     }
+
+
+    // Function to fetch categories from the API
+    function fetchFilter() {
+        const categorySelect = document.getElementById('filter-categories-select');
+        fetch('https://dummyjson.com/products/categories')
+            .then(res => res.json())
+            .then(data => {
+                const categories = data;
+                categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category.slug;
+                    option.innerText = category.slug;
+                    categorySelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+
 });
 
-function fetchFilter() {
-    const categorySelect = document.getElementById('filter-categories-select');
 
-
-    fetch('https://dummyjson.com/products/categories')
-        .then(res => res.json())
-        .then(data => {
-            const categories = data;
-            categories.forEach(category => {
-                const option = document.createElement('option');
-                option.value = category.name;
-                option.innerText = category.name;
-                categorySelect.appendChild(option);
-            });
-        })
-        .catch(error => console.error('Error fetching data:', error));
-
-
-}
 
