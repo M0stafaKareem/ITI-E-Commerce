@@ -96,11 +96,9 @@ header #search-input:focus {
 
 .filter-btn {
   background: rgb(22, 105, 156);
-  background: linear-gradient(
-    200deg,
-    rgb(1, 24, 39) 30%,
-    rgba(22, 105, 156, 1) 100%
-  );
+  background: linear-gradient(200deg,
+      rgb(1, 24, 39) 30%,
+      rgba(22, 105, 156, 1) 100%);
   color: white;
   border: none;
   padding: 10px 50px;
@@ -123,11 +121,9 @@ header #search-input:focus {
   justify-content: center;
   display: flex;
   background: rgb(22, 105, 156);
-  background: linear-gradient(
-    200deg,
-    rgb(1, 24, 39) 30%,
-    rgba(22, 105, 156, 1) 100%
-  );
+  background: linear-gradient(200deg,
+      rgb(1, 24, 39) 30%,
+      rgba(22, 105, 156, 1) 100%);
   color: white;
   border: none;
   padding: 10px 50px;
@@ -150,7 +146,7 @@ select {
 
 input {
   border-radius: 20px;
-  width: 40%;
+  width: 100%;
   padding: 5px;
   margin: 5px;
   border: 1px solid black;
@@ -433,6 +429,12 @@ header nav ul li a:hover {
 
   .title-category-product h1 {
     font-size: 2rem;
+  }
+
+
+  .filter-section.active {
+    width: 15rem;
+    padding: 20px;
   }
 
   footer .row {
