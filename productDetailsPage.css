@@ -8,47 +8,9 @@
   padding: 0;
 }
 
-@media only screen and (max-width: 600px) {
-  header .left nav {
-    display: none;
-  }
-  header .left .logo span {
-    display: block;
-  }
-  header .right .sideMenu {
-    display: inline !important;
-  }
-
-  .productEssintials {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .productDetails {
-    padding: 20px !important ;
-    width: 90% !important;
-  }
-  .productDetails nav ul {
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .newReview form .reviewerData {
-    display: flex;
-    gap: -50px;
-    justify-content: space-between;
-  }
-
-  footer .row {
-    display: flex;
-    gap: 5vh !important;
-    flex-direction: column;
-  }
-}
-
 body,
 html {
+  position: relative;
   overflow-x: hidden;
   width: 100%;
 }
@@ -89,9 +51,14 @@ header .right {
   display: flex;
   flex: 1;
 }
-header .right .sideMenu {
+
+.hidden {
   display: none;
 }
+.shownInline {
+  display: inline;
+}
+
 header .left .logo {
   flex: 1;
 }
@@ -123,6 +90,34 @@ header .right button {
   border: none;
   margin: 0 10px;
   font-size: 30px;
+}
+
+.mobile-nav {
+  position: fixed;
+  width: 100%;
+  right: auto;
+  top: -300px;
+  transition: all 0.4s ease-in-out;
+}
+
+.mobileBurgerBtn,
+.mobileCloseBtn {
+  display: none;
+}
+
+.mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 30px;
+  background-color: #717fe0;
+  transition: all 0.3s ease-in-out;
+}
+.mobile-nav a {
+  text-decoration: none;
+  color: white;
+  font-family: "poppins";
 }
 
 /* Product Overview Styles */
@@ -361,6 +356,16 @@ header .right button {
   transition: color 0.3s;
 }
 
+.rating input:disabled ~ label {
+  cursor: default;
+  color: #ccc;
+}
+
+.rating input:disabled:checked ~ label {
+  cursor: default;
+  color: #6f00ff;
+}
+
 /*New Review*/
 
 .newReview {
@@ -530,5 +535,41 @@ header nav ul li a:hover {
   text-align: center;
 }
 
-@media (max-width =) {
+@media only screen and (max-width: 600px) {
+  header .left nav {
+    display: none;
+  }
+  header .left .logo span {
+    display: block;
+  }
+  header .right .mobileBurgerBtn {
+    display: inline;
+  }
+
+  .productEssintials {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .productDetails {
+    padding: 20px;
+    width: 90%;
+  }
+  .productDetails nav ul {
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .newReview form .reviewerData {
+    display: flex;
+    gap: -50px;
+    justify-content: space-between;
+  }
+
+  footer .row {
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+  }
 }

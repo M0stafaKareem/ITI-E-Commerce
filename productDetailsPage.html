@@ -28,10 +28,24 @@
         <button><i class="bx bx-search-alt-2"></i></button>
         <button><i class="bx bx-cart-alt"></i></button>
         <button><i class="bx bxs-user"></i></button>
-        <button class="sideMenu"><i class="bx bx-menu"></i></button>
+        <button class="mobileBurgerBtn" onclick="sideMenuHandler()">
+          <i class="bx bx-menu"></i>
+        </button>
+        <button class="mobileCloseBtn" onclick="closeSideMenuHandler()">
+          <i class="bx bx-x"></i>
+        </button>
       </div>
     </header>
 
+    <section class="mobile-nav">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Categories</a></li>
+        </ul>
+      </nav>
+    </section>
     <section class="porductOverview"></section>
 
     <section class="productDetails">
@@ -135,7 +149,6 @@
         </div>
       </div>
     </footer>
-
     <script src="./productDetails.js"></script>
   </body>
 </html>

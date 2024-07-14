@@ -2,6 +2,9 @@ let productData = {};
 const productOverviewSection = document.querySelector(".porductOverview");
 const productDetailsSection = document.querySelector(".productInformation");
 const reviewsCount = document.querySelector(".revCount");
+const mobileNavMenu = document.querySelector(".mobile-nav");
+const mobileBurgerBtn = document.querySelector(".mobileBurgerBtn");
+const mobileCloseBtn = document.querySelector(".mobileCloseBtn");
 
 const fetchProductData = async (productID) => {
   try {
@@ -72,15 +75,34 @@ const productDetailsNavHandler = (event = null, me = {}) => {
           <div class="reviewer">
             <h2 class="reviewerName">${item.reviewerName}</h2>
             <div class="rating">
-              <input value="5" name="${item.comment}" id="star5_${item.comment}" type="radio">
+              <input value="5" name="${item.comment}" 
+              id="star5_${item.comment}" 
+              type="radio" disabled 
+              ${Math.floor(item.rating) === 5 ? "checked" : ""}>
               <label for="star5_${item.comment}"></label>
-              <input value="4" name="${item.comment}" id="star4_${item.comment}" type="radio">
+              
+              <input value="4" name="${item.comment}" 
+              id="star4_${item.comment}" 
+              type="radio" disabled 
+              ${Math.floor(item.rating) === 4 ? "checked" : ""}>
               <label for="star4_${item.comment}"></label>
-              <input value="3" name="${item.comment}" id="star3_${item.comment}" type="radio">
+              
+              <input value="3" name="${item.comment}" 
+              id="star3_${item.comment}" 
+              type="radio" disabled 
+              ${Math.floor(item.rating) === 3 ? "checked" : ""}>
               <label for="star3_${item.comment}"></label>
-              <input value="2" name="${item.comment}" id="star2_${item.comment}" type="radio">
+
+              <input value="2" name="${item.comment}" 
+              id="star2_${item.comment}" 
+              type="radio" disabled 
+              ${Math.floor(item.rating) === 2 ? "checked" : ""}>
               <label for="star2_${item.comment}"></label>
-              <input value="1" name="${item.comment}" id="star1_${item.comment}" type="radio">
+              
+              <input value="1" name="${item.comment}" 
+              id="star1_${item.comment}" 
+              type="radio" disabled 
+              ${Math.floor(item.rating) === 1 ? "checked" : ""}>
               <label for="star1_${item.comment}"></label>
             </div>
                       </div>
@@ -161,4 +183,17 @@ const operationBtnHandler = (event, op) => {
   }
 };
 
-renderSingleProduct(17);
+const sideMenuHandler = () => {
+  mobileBurgerBtn.style.display = "none";
+  mobileCloseBtn.style.display = "inline";
+  mobileNavMenu.style.display = "block";
+  mobileNavMenu.style.top = "100px";
+};
+
+const closeSideMenuHandler = () => {
+  mobileBurgerBtn.style.display = "inline";
+  mobileCloseBtn.style.display = "none";
+  mobileNavMenu.style.top = "-300px";
+};
+
+renderSingleProduct(180);
