@@ -5,9 +5,6 @@ const reviewsCount = document.querySelector(".revCount");
 const mobileNavMenu = document.querySelector(".mobile-nav");
 const mobileBurgerBtn = document.querySelector(".mobileBurgerBtn");
 const mobileCloseBtn = document.querySelector(".mobileCloseBtn");
-const productDesc = document.getElementById("productDesc");
-const productRev = document.getElementById("productRev");
-const writeNewRev = document.getElementById("writeNewRev");
 
 const fetchProductData = async (productID) => {
   try {
@@ -19,7 +16,10 @@ const fetchProductData = async (productID) => {
     console.error("Error fetching product data:", error);
   }
 };
-
+const sidePhotoClickHandler = (url) => {
+  const mainPhoto = document.querySelector(".mainImage");
+  mainPhoto.src = url;
+};
 const renderSingleProduct = async (productID = 15) => {
   await fetchProductData(productID);
 
@@ -33,14 +33,13 @@ const renderSingleProduct = async (productID = 15) => {
       <div class="productEssintials">
         <div class="productImages">
           <aside>
-          ${productData.images.map((img) => {
-            return `<button onclick="sidePhotoClickHandler('${img}')">
-              <img
-                src="${img}"
-                alt=""
-              />
+          ${productData.images
+            .map((img) => {
+              return `<button onclick="sidePhotoClickHandler(\`${img}\`)">
+              <img src="${img}" alt="" />
             </button>`;
-          })}
+            })
+            .join("")}
           </aside>
           <div class="mainImageContainer">
             <img
@@ -58,13 +57,15 @@ const renderSingleProduct = async (productID = 15) => {
             ${productData.description}
             </h3>
           </div>
-          <form action="" class="numberOfItems">
+          <form class="numberOfItems">
             <div class="quantity">
               <button class="op" onclick = "operationBtnHandler(event , '-')" > - </button>
               <div class="qun">1</div>
               <button class="op" onclick = "operationBtnHandler(event , '+')" > + </button>
             </div>
-            <button class="addBtn">ADD TO CART</button>
+            <button class="addBtn" onclick="event.preventDefault(); AddItemToCart(${
+              productData.id
+            })">Add to Cart</button>
           </form>
         </div>
       </div>`;
@@ -73,8 +74,9 @@ const renderSingleProduct = async (productID = 15) => {
 
 const productDetailsNavHandler = (event = null, me = {}) => {
   if (me.id == "productRev") {
-    productDetailsSection.innerHTML = `${productData.reviews.map((item) => {
-      return `<div class="reviews">
+    productDetailsSection.innerHTML = `${productData.reviews
+      .map((item) => {
+        return `<div class="reviews">
           <div class="reviewer">
             <h2 class="reviewerName">${item.reviewerName}</h2>
             <div class="rating">
@@ -112,7 +114,8 @@ const productDetailsNavHandler = (event = null, me = {}) => {
           <p class="comment">${item.comment}
           </p>
         </div>`;
-    })}`;
+      })
+      .join("")}`;
   } else if (me.id == "writeNewRev") {
     productDetailsSection.innerHTML = `<div class="newReview">
           <div class="newReviewHeading">
@@ -171,11 +174,6 @@ const productDetailsNavHandler = (event = null, me = {}) => {
   }
 };
 
-const sidePhotoClickHandler = (url) => {
-  const mainPhoto = document.querySelector(".mainImage");
-  mainPhoto.src = url;
-};
-
 const operationBtnHandler = (event, op) => {
   event.preventDefault();
   const quantity = document.querySelector(".qun");
@@ -185,15 +183,6 @@ const operationBtnHandler = (event, op) => {
     quantity.textContent = +quantity.textContent + 1;
   }
 };
-productDesc.addEventListener("click", function (e) {
-  productDetailsNavHandler(e, this);
-});
-productRev.addEventListener("click", function (e) {
-  productDetailsNavHandler(e, this);
-});
-writeNewRev.addEventListener("click", function (e) {
-  productDetailsNavHandler(e, this);
-});
 
 const sideMenuHandler = () => {
   mobileBurgerBtn.style.display = "none";

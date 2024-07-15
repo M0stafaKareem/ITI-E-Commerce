@@ -100,6 +100,7 @@ header .right button {
 
 .mobile-nav {
   position: fixed;
+  z-index: 1000;
   width: 100%;
   right: auto;
   top: -300px;
@@ -375,29 +376,11 @@ header nav ul li a:hover {
   header .right .mobileBurgerBtn {
     display: inline;
   }
+  header .right {
+    gap: 0;
+  }
   header .right button {
     font-size: 1.5rem;
-  }
-
-  .productEssintials {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .productDetails {
-    padding: 20px;
-    width: 90%;
-  }
-  .productDetails nav ul {
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-  }
-
-  .newReview form .reviewerData {
-    display: flex;
-    gap: -50px;
-    justify-content: space-between;
   }
 
   footer .row {

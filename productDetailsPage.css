@@ -26,6 +26,7 @@ html {
 .currDirectory {
   display: flex;
   align-items: center;
+  margin: 5vh 0;
   padding: 10px;
   gap: 10px;
 }
@@ -34,6 +35,8 @@ html {
   display: flex;
   align-items: center;
   width: 100%;
+  height: 65vh;
+  overflow: hidden;
 }
 
 /* Product Images Styles */
@@ -42,15 +45,22 @@ html {
   align-items: center;
   flex: 3;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
 .productImages aside {
   flex: 1;
+  height: 100%;
+  overflow-y: scroll;
+}
+.productImages aside::-webkit-scrollbar {
+  display: none;
 }
 
 .productImages aside img {
-  width: 100%;
+  max-height: 10%;
+  max-width: 6vw;
 }
 
 .productImages aside button {
@@ -67,11 +77,15 @@ html {
 }
 
 .productImages .mainImageContainer {
-  flex: 5;
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .productImages .mainImageContainer img {
-  width: 100%;
+  max-height: 100%;
 }
 
 /* Product Info Styles */
@@ -350,9 +364,21 @@ html {
 
   .productEssintials {
     flex-direction: column;
+    height: 100%;
     gap: 20px;
   }
+  .productInfo {
+    text-align: center;
+  }
 
+  .productImages .mainImageContainer img {
+    max-width: 90%;
+    max-height: 20%;
+  }
+  .productImages aside img {
+    max-width: 60%;
+    max-height: 60%;
+  }
   .productDetails {
     padding: 20px;
     width: 90%;

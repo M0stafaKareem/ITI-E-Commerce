@@ -53,10 +53,10 @@
           <button onclick="window.location.href='./Profile.html'">
             <i class="bx bxs-user"></i>
           </button>
-          <button class="mobileBurgerBtn">
+          <button class="mobileBurgerBtn" onclick="sideMenuHandler()">
             <i class="bx bx-menu"></i>
           </button>
-          <button class="mobileCloseBtn">
+          <button class="mobileCloseBtn" onclick="closeSideMenuHandler()">
             <i class="bx bx-x"></i>
           </button>
           <button class="login-btn">LOG IN</button>
@@ -67,8 +67,8 @@
         <nav>
           <ul>
             <li><a href="./Home.html">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Categories</a></li>
+            <li><a href="./ProductsPage.html">Shop</a></li>
+            <li><a href="./Product_Categories.html">Categories</a></li>
           </ul>
         </nav>
       </section>
@@ -220,6 +220,7 @@
         </div>
       </div>
     </div>
+
     <footer>
       <div class="footerContainer">
         <div class="row">
@@ -260,20 +261,9 @@
           <div class="footerCol">
             <h4 class="colHeader">GET IN TOUCH</h4>
             <p>
-              Any questions? Let us know in store at 8th floor, 379 Hudson St,
-              New York, NY 10018 or call us on (+1) 96 716 6879
+              Any questions? Let us know in store at Knowledge City,
+              New-Capital, Cairo, Egypt or call us on 17002
             </p>
-            <div class="p-t-27">
-              <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                <i class="fa fa-facebook"></i>
-              </a>
-              <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                <i class="fa fa-instagram"></i>
-              </a>
-              <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                <i class="fa fa-pinterest-p"></i>
-              </a>
-            </div>
           </div>
           <div class="footerCol">
             <h4 class="colHeader">NEWSLETTER</h4>
@@ -301,6 +291,7 @@
     </footer>
 
     <script src="./LoginScript.js"></script>
+    <script src="./productDetails.js"></script>
     <script src="ProductsScript.js"></script>
   </body>
 </html>
