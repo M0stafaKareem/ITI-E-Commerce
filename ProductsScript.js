@@ -15,14 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       searchInput.style.display = "block";
       searchInput.focus();
+      document.querySelector(".right").style.flex = 3;
     } else {
       searchInput.style.display = "none";
+      document.querySelector(".right").style.flex = 1;
     }
   });
 
   document.addEventListener("click", function (e) {
     if (!searchIcon.contains(e.target) && !searchInput.contains(e.target)) {
       searchInput.style.display = "none";
+      document.querySelector(".right").style.flex = 1;
     }
   });
 

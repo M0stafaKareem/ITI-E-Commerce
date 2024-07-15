@@ -36,7 +36,6 @@ html {
   align-items: center;
   width: 100%;
   height: 65vh;
-  overflow: hidden;
 }
 
 /* Product Images Styles */
@@ -46,7 +45,6 @@ html {
   flex: 3;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .productImages aside {
