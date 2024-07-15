@@ -2,6 +2,7 @@ const mainCategoryList = document.querySelector(".main-container");
 const productItems = document.querySelector(".product-container");
 const allCategories = document.querySelector(".categories-container");
 const categoryTitle = document.querySelector(".title-category-product");
+const openCategoryMobile = document.querySelector(".open-category-mobile");
 
 function categoryProduct(url) {
   let productItem;
@@ -72,6 +73,11 @@ document.querySelector(".open-btn").addEventListener("click", function () {
   console.log("u clicked");
   mainCategoryList.style.left = "0px";
 });
+openCategoryMobile.addEventListener("click", function () {
+  console.log("u clicked");
+  mainCategoryList.style.left = "0px";
+});
+
 document.querySelector(".close-btn").addEventListener("click", function () {
   console.log("u clicked");
   mainCategoryList.style.left = "-100vw";

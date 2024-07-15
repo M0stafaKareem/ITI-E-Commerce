@@ -85,9 +85,11 @@ header .left p {
   font-family: "Times New Roman";
 }
 
-header .left p span {
+header .left p span,
+header .left a {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
 }
 
 header .right button {
