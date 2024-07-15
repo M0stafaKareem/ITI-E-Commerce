@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="product-image" >
                     <img src="${product.thumbnail}" alt="${product.title}" />
                     <div class="add-cart-btn">
-                        <button>Add to Cart</button>
+                        <button onclick="event.stopPropagation(); AddItemToCart(${product.id})">Add to Cart</button>
                     </div>
                 </div>
                 <div class="category-style">
